@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nuam-tributario
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: NUAM_DB_URL      # jdbc:postgresql://HOST/DB?sslmode=require
+        sync: false
+      - key: NUAM_DB_USER
+        sync: false
+      - key: NUAM_DB_PASS
+        sync: false
+      - key: NUAM_BACKUP_KEY
+        generateValue: true
+      - key: NUAM_DEMO        # 1 = muestra el código 2FA en pantalla (útil para la demo)
+        value: "1"
+      - key: NUAM_SEED
+        value: "1"
